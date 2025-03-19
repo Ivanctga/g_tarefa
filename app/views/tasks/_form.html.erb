@@ -1,32 +1,22 @@
-<%= form_with(model: task) do |form| %>
-  <% if task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
+<%= form_with(model: task, local: true) do |form| %>
+ 
+ 
+  <div class="field">
+    <%= form.label :description, "Descrição", style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
-  <div>
-    <%= form.label :due_date, style: "display: block" %>
+  <div class="field">
+    <%= form.label :due_date, "Data", style: "display: block" %>
     <%= form.date_field :due_date %>
   </div>
 
-  <div>
-    <%= form.label :done, style: "display: block" %>
+  <div class="field">
+    <%= form.label :done, "Concluído", style: "display: block" %>
     <%= form.checkbox :done %>
   </div>
 
-  <div>
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
