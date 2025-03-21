@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 
 <head>
   <title>
@@ -21,8 +21,9 @@
 
             <%# Includes all stylesheet files in app/assets/stylesheets %>
             <%= stylesheet_link_tag "application", media: "all", data: { turbo_track: "reload" } %>
+            <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
 
-                <%= javascript_importmap_tags %>
+            <%= javascript_importmap_tags %>
 
 </head>
 
@@ -32,9 +33,11 @@
     <main class="col-11 col-md-10 col-lg-8 shadow-lg p-5 mb-5 bg-white rounded">
 
       <% flash.each do |type, message| %>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="alert alert-<%= type == "alert" ? "danger" : "success" %>
+        alert-dismissible fade show" role="alert">
           <%= message %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">              
+            </button>
         </div>
         <% end %>
 
