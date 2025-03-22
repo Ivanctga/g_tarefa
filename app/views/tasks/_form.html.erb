@@ -1,4 +1,7 @@
 <%= form_with(model: task, local: true) do |form| %>
+
+  <%= form.hidden_field :parent_id, 
+    value: task.parent_id || params[:parent_id] %>
  
  
   <div class="form-group">
@@ -12,7 +15,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.checkbox :done, class: "form-check-input" %>
+    <%= form.check_box :done, class: "form-check-input" %>
     <%= form.label :done, class: "form-check-label" %>
   </div><br>
   
