@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
+  
   <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
       <%= yield :head %>
@@ -31,8 +32,8 @@
 
 <body>
   <div class="d-flex h-100 align-items-center justify-content-center row mx-auto"
-    style="background-image: url('<%= asset_path("bg.jpg") %>');">
-    <main class="col-11 col-md-10 col-lg-8 shadow-lg p-5 mb-5 bg-white rounded">
+    style="background-image: url('<%= asset_path("bg.jpg") %>')">
+    <main  class="col-11 col-md-10 col-lg-8 shadow-lg p-5 mb-5 bg-white rounded ">
 
       <% flash.each do |type, message| %>
         <div class="alert alert-<%= type == "alert" ? "danger" : "success" %>
